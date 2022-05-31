@@ -9,8 +9,10 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  console.log(req.body);
-  res.json("received");
+  const { data } = req.body;
+  const dataSet = new DataSet({ data });
+  await dataSet.save();
+  res.json({ status: "DataSet saved" });
 });
 
 module.exports = router;

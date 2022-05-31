@@ -10,11 +10,11 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 // Routes
-app.use(require("./routes//dataSets.routes"));
+app.use('/api/dataSets',require("./routes/dataSets.routes"));
 
 // Static files
 
 // Starting the server
 app.listen(app.get("port"), () => {
-  console.log(`server ${app.get("port")}`);
+  console.log(`Server on port: ${app.get("port")}`);
 });
